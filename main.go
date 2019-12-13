@@ -28,8 +28,8 @@ import (
 
 func main() {
 	flag.CommandLine = flag.NewFlagSet(os.Args[0], flag.ExitOnError)
-	flagResourceName := flag.String("resource-name", "nvidia.com/gpu", "Define the default resource name: nvidia.com/gpu.")
-	flagResourceNum := flag.Int("resource-num", 8, "Define the default resource number: 8.")
+	flagResourceName := flag.String("resource-name", "nvidia.com/gpu", "Define the default resource name.")
+	flagResourceNum := flag.Int("resource-num", 8, "Define the default resource number.")
 	klog.InitFlags(flag.CommandLine)
 	flag.Parse()
 	defer klog.Flush()
