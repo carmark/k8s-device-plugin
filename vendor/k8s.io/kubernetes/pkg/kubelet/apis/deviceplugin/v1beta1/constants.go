@@ -16,6 +16,8 @@ limitations under the License.
 
 package v1beta1
 
+import "os"
+
 const (
 	// Healthy means that the device is healthy
 	Healthy = "Healthy"
@@ -38,8 +40,10 @@ var (
 	// KubeletSocket is the path of the Kubelet registry socket
 	KubeletSocket = DevicePluginPath + "kubelet.sock"
 )
+
 func init() {
        if tmp := os.Getenv("DEVICE_PLUGIN_PATH"); tmp != "" {
                DevicePluginPath = tmp
+			   KubeletSocket = tmp + "kubelet.sock"
        }
 }
